@@ -1,0 +1,29 @@
+﻿ <Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0" DefaultTargets="Build">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.637273" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="TinyIoC\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\StartCenterView.xaml.cs">
+      <DependentUpon>StartCenterView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\CustomNavigationView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\HelloView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
