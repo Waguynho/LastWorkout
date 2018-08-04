@@ -2,11 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModelBase="clr-namespace:LastWorkout.ViewModels.Base;assembly=LastWorkout"
-             viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="true" 
+             NavigationPage.HasNavigationBar="True"
              x:Class="LastWorkout.Views.HelloView">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="bla bla bla!" />
+    
+    <ContentPage.Content >
+        <StackLayout HorizontalOptions="CenterAndExpand">            
+                <Label Text="bla bla bla!" TextColor="Red" FontSize="Large"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

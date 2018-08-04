@@ -15,6 +15,7 @@ namespace LastWorkout.Views
         public CustomNavigationView() : base()
         {
             InitializeComponent();
+            SetHasNavigationBar(this, true);
         }
 
         public CustomNavigationView(Page root) : base(root)

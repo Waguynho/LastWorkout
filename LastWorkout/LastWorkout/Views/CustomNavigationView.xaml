@@ -5,5 +5,11 @@
     x:Class="LastWorkout.Views.CustomNavigationView"    
     BarBackgroundColor="{StaticResource GreenColor}"
     BarTextColor="{StaticResource WhiteColor}"
-    BackgroundColor="Transparent">
+    BackgroundColor="Transparent"
+    Title="XXXX"    
+    NavigationPage.BackButtonTitle="VOLTAR xxxxxxxxxxyyyyyyyyyyyyyyyyyyyy"  
+    
+    >
+    
+    
 </NavigationPage>

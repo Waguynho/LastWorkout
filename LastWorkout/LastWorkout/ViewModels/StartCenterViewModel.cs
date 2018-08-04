@@ -18,7 +18,7 @@ namespace LastWorkout.ViewModels
             try
             {
                 await NavigationService.NavigateToAsync<HelloViewModel>();
-                await NavigationService.RemoveLastFromBackStackAsync();
+                //await NavigationService.RemoveLastFromBackStackAsync();
             }
             catch (System.Exception e)
             {

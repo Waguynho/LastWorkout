@@ -9,7 +9,7 @@ namespace LastWorkout.Views
 	{
 		public HelloView ()
 		{
-			InitializeComponent ();
+			InitializeComponent ();            
 		}
 	}
 }
