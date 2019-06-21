@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LastWorkout.CustomControls;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
@@ -21,14 +22,19 @@ namespace LastWorkout.Views
             buttonHome.BorderColor = Color.Orange;
             buttonHome.SetBinding(Button.CommandProperty, "HomeCommand", BindingMode.OneWay);
 
+            WImage leg = new WImage();
+            leg.Source = "legpress.png";
+            leg.SetBinding(WImage.TapCommandProperty, "HomeCommand");
+
             StackLayout stack = new StackLayout();
             stack.Orientation = StackOrientation.Vertical;
             stack.VerticalOptions = LayoutOptions.FillAndExpand;
 
             stack.Children.Add(labelPresentation);
             stack.Children.Add(buttonHome);
+            stack.Children.Add(leg);
 
-            Content = stack;
+            Content = stack;           
         }
     }
 }
