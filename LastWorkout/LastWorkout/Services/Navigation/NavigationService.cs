@@ -45,7 +45,7 @@ namespace LastWorkout.Services.Navigation
         {
             var mainPage = Application.Current.MainPage as CustomNavigationView;
 
-            if (mainPage != null)
+            if (Application.Current.MainPage is CustomNavigationView )
             {
                 mainPage.Navigation.RemovePage(
                     mainPage.Navigation.NavigationStack[mainPage.Navigation.NavigationStack.Count - 2]);
@@ -74,6 +74,8 @@ namespace LastWorkout.Services.Navigation
         {
             Page page = CreatePage(viewModelType, parameter);
 
+            SetBindingContextView(page);
+
             var navigationPage = Application.Current.MainPage as CustomNavigationView;
             if (navigationPage != null)
             {
@@ -86,6 +88,14 @@ namespace LastWorkout.Services.Navigation
 
 
             await (page.BindingContext as ViewModelBase).InitializeAsync(parameter);
+        }
+
+        private static void SetBindingContextView(Page page)
+        {
+            if (page != null && page.BindingContext == null)
+            {
+                ViewModelLocator.OnAutoWireViewModelChanged(page, false, true);
+            }
         }
 
         private Type GetPageTypeForViewModel(Type viewModelType)

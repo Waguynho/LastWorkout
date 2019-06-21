@@ -33,31 +33,17 @@ namespace LastWorkout.ViewModels.Base
             _container = new TinyIoCContainer();
 
             // View models - by default, TinyIoC will register concrete classes as multi-instance.
-           // _container.Register<BasketViewModel>();
-            _container.Register<StartCenterViewModel>();
-            _container.Register<HelloViewModel>();
-            
+            RegisterViewModels();
 
             // Services - by default, TinyIoC will register interface registrations as singletons.
             _container.Register<INavigationService, NavigationService>();
-  
         }
 
-        public static void UpdateDependencies(bool useMockServices)
+        private static void RegisterViewModels()
         {
-            // Change injected dependencies
-            if (useMockServices)
-            {
-
-
-                UseMockService = true;
-            }
-            else
-            {
-   
-
-                UseMockService = false;
-            }
+            _container.Register<StartCenterViewModel>();
+            _container.Register<HelloViewModel>();
+            _container.Register<RegisterWorkOutViewModel>();
         }
 
         public static void RegisterSingleton<TInterface, T>() where TInterface : class where T : class, TInterface
@@ -70,7 +56,7 @@ namespace LastWorkout.ViewModels.Base
             return _container.Resolve<T>();
         }
 
-        private static void OnAutoWireViewModelChanged(BindableObject bindable, object oldValue, object newValue)
+        public static void OnAutoWireViewModelChanged(BindableObject bindable, object oldValue, object newValue)
         {
             var view = bindable as Element;
             if (view == null)
@@ -92,5 +78,4 @@ namespace LastWorkout.ViewModels.Base
             view.BindingContext = viewModel;
         }
     }
-
 }

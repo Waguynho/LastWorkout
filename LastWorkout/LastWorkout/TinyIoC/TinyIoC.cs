@@ -2911,10 +2911,7 @@ namespace TinyIoC
 
             public DelegateFactory(Type registerType, Func<TinyIoCContainer, NamedParameterOverloads, object> factory)
             {
-                if (factory == null)
-                    throw new ArgumentNullException("factory");
-
-                _factory = factory;
+                _factory = factory ?? throw new ArgumentNullException("factory");
 
                 this.registerType = registerType;
             }
@@ -3251,9 +3248,6 @@ namespace TinyIoC
 
             public CustomObjectLifetimeFactory(Type registerType, Type registerImplementation, ITinyIoCObjectLifetimeProvider lifetimeProvider, string errorMessage)
             {
-                if (lifetimeProvider == null)
-                    throw new ArgumentNullException("lifetimeProvider", "lifetimeProvider is null.");
-
                 if (!IsValidAssignment(registerType, registerImplementation))
                     throw new TinyIoCRegistrationTypeException(registerImplementation, "SingletonFactory");
 
@@ -3266,7 +3260,7 @@ namespace TinyIoC
 
                 this.registerType = registerType;
                 this.registerImplementation = registerImplementation;
-                _LifetimeProvider = lifetimeProvider;
+                _LifetimeProvider = lifetimeProvider ?? throw new ArgumentNullException("lifetimeProvider", "lifetimeProvider is null.");
             }
 
             public override Type CreatesType
