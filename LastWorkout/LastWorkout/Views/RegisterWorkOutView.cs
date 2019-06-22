@@ -1,4 +1,5 @@
 ﻿using LastWorkout.CustomControls;
+using LastWorkout.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,29 +15,56 @@ namespace LastWorkout.Views
         {
             Title = "Register Workout";
 
-            labelPresentation.Text = "VIEW CODE";
-            labelPresentation.TextColor = Color.White;
-            labelPresentation.BackgroundColor = Color.Black;
+            Label dateWorkoutLabel = new Label();
+            dateWorkoutLabel.Text = "WorkOut Date";
 
-            Button buttonHome = new Button();
-            buttonHome.Text = "Home";
-            buttonHome.TextColor = Color.White;
-            buttonHome.BorderColor = Color.Orange;
-            buttonHome.SetBinding(Button.CommandProperty, "HomeCommand", BindingMode.OneWay);
 
-            WImage leg = new WImage();
-            leg.Source = "legpress.png";
-            leg.SetBinding(WImage.TapCommandProperty, "HomeCommand");
+            DatePicker datePicker = new DatePicker();
+            datePicker.Date = DateTime.Now;
+            datePicker.BackgroundColor = Color.Orange;
+            datePicker.TextColor = Color.White;
+            datePicker.SetBinding(DatePicker.DateProperty, "WorkOutDate");
+
+            WPicker<ISelectorItem> picker = new WPicker<ISelectorItem>();
+            picker.Title = "Workout Level";
+            picker.TextColor = Color.White;
+            picker.BackgroundColor = Color.Orange;
+            picker.SetBinding(WPicker<ISelectorItem>.ItemsObjectProperty, "Levels");
+            picker.SetBinding(WPicker<ISelectorItem>.SelectedObjectProperty, "SelectedLevel");
+
+
+            Editor editor = new Editor();
+            editor.Keyboard = Keyboard.Text;
+            editor.Placeholder = "Observações";
+            editor.MinimumHeightRequest = 10;
+            editor.TextColor = Color.White;
+            editor.BackgroundColor = Color.Orange;
+            editor.SetBinding(Editor.TextProperty, "Observation");
+
+            Button buttonSave = new Button();
+            buttonSave.Text = "Save";
+            buttonSave.TextColor = Color.Black;
+            buttonSave.BackgroundColor = Color.White;
+            buttonSave.BorderColor = Color.Orange;
+            buttonSave.SetBinding(Button.CommandProperty, "SaveCommand");
+
+
 
             StackLayout stack = new StackLayout();
+            stack.BackgroundColor = Color.Black;
             stack.Orientation = StackOrientation.Vertical;
             stack.VerticalOptions = LayoutOptions.FillAndExpand;
+            stack.Padding = new Thickness(5, 3);
 
-            stack.Children.Add(labelPresentation);
-            stack.Children.Add(buttonHome);
-            stack.Children.Add(leg);
+            stack.Children.Add(dateWorkoutLabel);
+            stack.Children.Add(datePicker);
+            stack.Children.Add(picker);
+            stack.Children.Add(editor);
+            stack.Children.Add(buttonSave);
 
             Content = stack;           
         }
+
+
     }
 }
