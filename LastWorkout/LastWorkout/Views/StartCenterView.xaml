@@ -2,24 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModelBase="clr-namespace:LastWorkout.ViewModels.Base;assembly=LastWorkout"
-             xmlns:imageBehavior="clr-namespace:LastWorkout.Behaviors;assembly=LastWorkout"
              xmlns:customcontrols="clr-namespace:LastWorkout.CustomControls"
              viewModelBase:ViewModelLocator.AutoWireViewModel="true"
              BackgroundColor="{StaticResource BlackColor}"
              Title="Welcome to Last Workout"
              x:Class="LastWorkout.Views.StartCenterView">
 
-    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" IsVisible="True">
+    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="3">
 
-        <customcontrols:WImage Source="legpress.png" Aspect="AspectFit" TapCommand="{Binding NextPageCommand}" />
+        <customcontrols:WImage Source="legpress.png" Aspect="AspectFit"   TapCommand="{Binding NextPageCommand}" PanCommand="{Binding PanCommand}" PinchCommand="{Binding PinchCommand}" />
 
-
-        <!-- Place new controls here -->
-            <Label Text="See WorkOut History" 
+        <Label Text="Register Workout" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" 
            TextColor="White"/>
-            <Button Text="CLICAR" TextColor="White" Command="{Binding NextPageCommand}" ></Button>
+        <customcontrols:WImage Source="pench_press.png" Aspect="AspectFit"   TapCommand="{Binding NextPageCommand}" PanCommand="{Binding PanCommand}" PinchCommand="{Binding PinchCommand}" />
+
+        <Label Text="See WorkOut History" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" 
+           TextColor="White"/>
+        <Button Text="CLICAR" TextColor="White" Command="{Binding NextPageCommand}" ></Button>
     </StackLayout>
 
 </ContentPage>

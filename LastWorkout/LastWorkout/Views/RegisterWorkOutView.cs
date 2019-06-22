@@ -12,9 +12,11 @@ namespace LastWorkout.Views
 
         public RegisterWorkOutView()
         {
+            Title = "Register Workout";
+
             labelPresentation.Text = "VIEW CODE";
             labelPresentation.TextColor = Color.White;
-            labelPresentation.BackgroundColor = Color.Orange;
+            labelPresentation.BackgroundColor = Color.Black;
 
             Button buttonHome = new Button();
             buttonHome.Text = "Home";

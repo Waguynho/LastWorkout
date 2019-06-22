@@ -20,6 +20,14 @@ namespace LastWorkout.ViewModels
 
         public ICommand NextPageCommand => new Command(async () => await GoHelloView());
 
+        public ICommand PanCommand => new Command(async () => {
+            Console.WriteLine("PAN GESTURE!");
+        });
+
+        public ICommand PinchCommand => new Command(async () => {
+            Console.WriteLine("PIN GESTURE!");
+        });
+
 
         private string legPressImage;
         public string LegPressImage
