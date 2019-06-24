@@ -16,13 +16,13 @@
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" 
            TextColor="White"/>
-        <customcontrols:WImage Source="pench_press.png" Aspect="AspectFit"   TapCommand="{Binding NextPageCommand}" PanCommand="{Binding PanCommand}" PinchCommand="{Binding PinchCommand}" />
+        <customcontrols:WImage Source="pench_press.png" Aspect="AspectFit"   TapCommand="{Binding WorkOutsListCommand}" PanCommand="{Binding PanCommand}" PinchCommand="{Binding PinchCommand}" />
 
         <Label Text="See WorkOut History" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" 
            TextColor="White"/>
-        <Button Text="CLICAR" TextColor="White" Command="{Binding NextPageCommand}" ></Button>
+        <Button Text="CLICAR" TextColor="White" Command="{Binding WorkOutsListCommand}" ></Button>
     </StackLayout>
 
 </ContentPage>

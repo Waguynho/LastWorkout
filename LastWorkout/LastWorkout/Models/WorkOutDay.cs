@@ -8,7 +8,7 @@ namespace LastWorkout.Models
     public class WorkOutDay: RealmObject
     {
         [PrimaryKey]
-        public string Id { get; set; }
+        public long Id { get; set; }
 
         public int WorkOutLevel { get; set; }
         public string  Observasion { get; set; }

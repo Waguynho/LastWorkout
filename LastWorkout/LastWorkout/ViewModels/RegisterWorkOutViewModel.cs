@@ -1,6 +1,7 @@
 ﻿using LastWorkout.Interfaces;
 using LastWorkout.Models;
 using LastWorkout.ViewModels.Base;
+using Realms;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -92,9 +93,9 @@ namespace LastWorkout.ViewModels
                 workOutDay.WorkOutLevel = SelectedLevel.Code;
                 workOutDay.Observasion = Observation;
                 workOutDay.WorkOutDate = WorkOutDate;
-                workOutDay.Id = WorkOutDate.Ticks.ToString();
+                workOutDay.Id = WorkOutDate.Ticks;
 
-                var x = "";
+                SaveWorkOutDay(workOutDay);
             }
             catch (System.Exception e)
             {
@@ -102,6 +103,16 @@ namespace LastWorkout.ViewModels
             }
 
             IsBusy = false;
+        }
+
+        private  void SaveWorkOutDay(WorkOutDay workOutDay)
+        {
+            Realm realm = Realm.GetInstance();
+
+            realm.Write(() =>
+            {
+                realm.Add(workOutDay);
+            });
         }
     }
 }

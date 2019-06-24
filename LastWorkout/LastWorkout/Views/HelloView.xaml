@@ -6,17 +6,35 @@
              viewModelBase:ViewModelLocator.AutoWireViewModel="true" 
              NavigationPage.HasNavigationBar="True"             
              BackgroundColor="{StaticResource BlackColor}"
-             Title="Second Page">
-    <ContentPage.ToolbarItems >
-        <ToolbarItem  Name="MenuItem1" Order="Primary"  Text="Item 1" Priority="0"  />
-        <ToolbarItem Name="MenuItem2" Order="Primary"  Text="Item 2" Priority="1" />
-        <ToolbarItem Name="MenuItem3" Order="Secondary"  Text="Item 3" Priority="3" />
-        <ToolbarItem Name="MenuItem4" Order="Secondary"  Text="Item 4" Priority="4" />
-    </ContentPage.ToolbarItems>
-    <ContentPage.Content >
+             Title="WorkOut List">    
 
-        <StackLayout HorizontalOptions="CenterAndExpand">
-            <Label Text="bla bla bla!" TextColor="Blue" FontSize="Large"/>
-        </StackLayout>
+    <ContentPage.Content>
+
+
+        <ListView  x:Name="listView" ItemsSource="{Binding ListItems}" BackgroundColor="Black">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="#eee"
+                        Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal" BackgroundColor="White" Padding="5" HorizontalOptions="FillAndExpand">
+
+                                <Label Text="{Binding WorkOutDate, StringFormat='The date -> {0:D}'}"
+                                HorizontalOptions="Start" 
+                                TextColor="Orange" />
+                                
+                                <Label Text="{Binding Observasion}"
+                                TextColor="Orange"  HorizontalOptions="Center"/>
+                                
+                                <Label Text="{Binding WorkOutLevel}"
+                                HorizontalOptions="End"
+                                TextColor="Orange" />
+                                
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

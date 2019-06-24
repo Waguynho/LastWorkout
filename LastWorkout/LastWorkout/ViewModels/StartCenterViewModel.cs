@@ -20,6 +20,8 @@ namespace LastWorkout.ViewModels
 
         public ICommand NextPageCommand => new Command(async () => await GoHelloView());
 
+        public ICommand WorkOutsListCommand => new Command(async () => await GoWorkOutsView());
+
         public ICommand PanCommand => new Command(async () => {
             Console.WriteLine("PAN GESTURE!");
         });
@@ -58,6 +60,24 @@ namespace LastWorkout.ViewModels
 
             IsBusy = false;
         }
-         
+
+        private async Task GoWorkOutsView()
+        {
+          
+
+            try
+            {
+                await NavigationService.NavigateToAsync<HelloViewModel>();
+            }
+            catch (System.Exception e)
+            {
+
+                Debug.WriteLine("======== " + e.Message);
+                Console.WriteLine("======== " + e.Message);
+            }
+
+           
+        }
+
     }
 }
