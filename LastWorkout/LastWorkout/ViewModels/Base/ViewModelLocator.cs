@@ -76,6 +76,7 @@ namespace LastWorkout.ViewModels.Base
             }
             var viewModel = _container.Resolve(viewModelType);
             view.BindingContext = viewModel;
+            (viewModel as ViewModelBase).PageContext = (Page)view;
         }
     }
 }

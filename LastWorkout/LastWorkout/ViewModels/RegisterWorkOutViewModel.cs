@@ -99,19 +99,24 @@ namespace LastWorkout.ViewModels
             }
             catch (System.Exception e)
             {
+                await PageContext.DisplayAlert("erro", e?.Message, "cancel");
                 Console.WriteLine("======== " + e.Message);
             }
 
             IsBusy = false;
         }
 
-        private  void SaveWorkOutDay(WorkOutDay workOutDay)
+        private void SaveWorkOutDay(WorkOutDay workOutDay)
         {
             Realm realm = Realm.GetInstance();
 
             realm.Write(() =>
             {
-                realm.Add(workOutDay);
+                bool success = realm.Add(workOutDay).IsValid;
+                if (success)
+                {
+                    PageContext.DisplayAlert("aviso", "Salvou!", "cancel");
+                }
             });
         }
     }

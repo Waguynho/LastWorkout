@@ -1,5 +1,6 @@
 ﻿using LastWorkout.ViewModels.Base;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace LastWorkout.Services.Navigation
 {
@@ -15,6 +16,6 @@ namespace LastWorkout.Services.Navigation
 
         Task RemoveLastFromBackStackAsync();
 
-        Task RemoveBackStackAsync();
+        Task RemoveBackStackAsync();         
     }
 }

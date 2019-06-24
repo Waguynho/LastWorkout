@@ -13,6 +13,10 @@ namespace LastWorkout.Services.Navigation
 {
     public class NavigationService : INavigationService
     {
+        public NavigationService()
+        {
+
+        }
 
         public ViewModelBase PreviousPageViewModel
         {
@@ -23,7 +27,6 @@ namespace LastWorkout.Services.Navigation
                 return viewModel as ViewModelBase;
             }
         }
-
 
 
         public Task InitializeAsync()

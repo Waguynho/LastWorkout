@@ -13,11 +13,10 @@ namespace LastWorkout.Views
 
         public RegisterWorkOutView()
         {
-            Title = "Register Workout";
+            Title = "Register Workout";            
 
             Label dateWorkoutLabel = new Label();
             dateWorkoutLabel.Text = "WorkOut Date";
-
 
             DatePicker datePicker = new DatePicker();
             datePicker.Date = DateTime.Now;
@@ -61,10 +60,8 @@ namespace LastWorkout.Views
             stack.Children.Add(picker);
             stack.Children.Add(editor);
             stack.Children.Add(buttonSave);
-
             Content = stack;           
         }
-
 
     }
 }

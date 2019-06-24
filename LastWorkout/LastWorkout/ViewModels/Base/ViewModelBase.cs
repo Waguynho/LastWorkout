@@ -1,5 +1,6 @@
 ﻿using LastWorkout.Services.Navigation;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace LastWorkout.ViewModels.Base
 {
@@ -32,6 +33,8 @@ namespace LastWorkout.ViewModels.Base
         {
             return Task.FromResult(false);
         }
+
+        public Page PageContext { get; set; }
     }
 
 }
