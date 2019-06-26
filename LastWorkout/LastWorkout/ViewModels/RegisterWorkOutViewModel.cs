@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace LastWorkout.ViewModels
@@ -74,13 +75,16 @@ namespace LastWorkout.ViewModels
         {
             SaveCommand = SaveCommand == null ? SaveCommand = new Command(async () => await Save()) : SaveCommand;
 
-            Levels = new List<ISelectorItem>()
+            LoadLevels();
+        }
+
+        private void LoadLevels()
         {
-            { new Level { Code = 0, Description =  "Descanso"} },
-            { new Level { Code = 1, Description =  "Fácil"} },
-            { new Level { Code = 2, Description =  "Moderado"} },
-            { new Level { Code = 3, Description =  "Dificil"} },
-        };
+            Realm realm = Realm.GetInstance();
+
+            IList<Level> levelItems = realm.All<Level>().OrderBy(l => l.Code).ToList<Level>();
+
+            Levels = levelItems.ToList<ISelectorItem>();
         }
 
         private async Task Save()
@@ -90,10 +94,11 @@ namespace LastWorkout.ViewModels
             try
             {
                 WorkOutDay workOutDay = new WorkOutDay();
-                workOutDay.WorkOutLevel = SelectedLevel.Code;
+                //workOutDay.WorkOutLevel = SelectedLevel.Code;
                 workOutDay.Observasion = Observation;
                 workOutDay.WorkOutDate = WorkOutDate;
                 workOutDay.Id = WorkOutDate.Ticks;
+                workOutDay.Level = (Level)SelectedLevel;
 
                 SaveWorkOutDay(workOutDay);
             }

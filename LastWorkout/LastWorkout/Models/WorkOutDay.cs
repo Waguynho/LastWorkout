@@ -10,8 +10,12 @@ namespace LastWorkout.Models
         [PrimaryKey]
         public long Id { get; set; }
 
-        public int WorkOutLevel { get; set; }
+        //public int WorkOutLevel { get; set; }
+
         public string  Observasion { get; set; }
+
         public DateTimeOffset  WorkOutDate { get; set; }
+
+        public Level Level { get; set; }
     }
 }

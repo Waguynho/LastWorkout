@@ -1,3 +1,4 @@
+using LastWorkout.Facades;
 using LastWorkout.Services.Navigation;
 using LastWorkout.ViewModels.Base;
 using System.Threading.Tasks;
@@ -36,6 +37,7 @@ namespace LastWorkout
                  InitNavigation();
             }
 
+            ConfigDataBaseFacade.CreateBasicTables();
 
             base.OnResume();
         }
