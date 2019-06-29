@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Linq;
 using Xamarin.Forms;
+using LastWorkout.Facades;
 
 namespace LastWorkout.ViewModels
 {
-
     public class RegisterWorkOutViewModel : ViewModelBase
     {
 
@@ -80,7 +80,7 @@ namespace LastWorkout.ViewModels
 
         private void LoadLevels()
         {
-            Realm realm = Realm.GetInstance();
+            Realm realm = Realm.GetInstance(ConfigDataBaseFacade.GetConfigurationBase());
 
             IList<Level> levelItems = realm.All<Level>().OrderBy(l => l.Code).ToList<Level>();
 
@@ -113,7 +113,7 @@ namespace LastWorkout.ViewModels
 
         private void SaveWorkOutDay(WorkOutDay workOutDay)
         {
-            Realm realm = Realm.GetInstance();
+            Realm realm = Realm.GetInstance(ConfigDataBaseFacade.GetConfigurationBase()); 
 
             realm.Write(() =>
             {

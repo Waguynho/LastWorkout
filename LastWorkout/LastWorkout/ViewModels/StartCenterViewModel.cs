@@ -62,15 +62,12 @@ namespace LastWorkout.ViewModels
 
         private async Task GoWorkOutsView()
         {
-          
-
             try
             {
                 await NavigationService.NavigateToAsync<WorkOutListViewModel>();
             }
             catch (System.Exception e)
             {
-
                 Debug.WriteLine("======== " + e.Message);
                 Console.WriteLine("======== " + e.Message);
             }

@@ -1,11 +1,11 @@
 ﻿using LastWorkout.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
-using System.Linq;
-using System.Runtime.CompilerServices;
 
 namespace LastWorkout.CustomControls
 {

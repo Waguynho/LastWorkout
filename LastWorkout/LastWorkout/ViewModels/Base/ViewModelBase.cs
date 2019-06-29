@@ -36,5 +36,4 @@ namespace LastWorkout.ViewModels.Base
 
         public Page PageContext { get; set; }
     }
-
 }

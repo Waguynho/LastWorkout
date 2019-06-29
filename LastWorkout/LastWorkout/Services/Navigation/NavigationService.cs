@@ -122,5 +122,4 @@ namespace LastWorkout.Services.Navigation
             return page;
         }
     }
-
 }

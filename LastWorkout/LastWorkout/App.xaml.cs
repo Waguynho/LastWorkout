@@ -14,8 +14,6 @@ namespace LastWorkout
 		{
 			InitializeComponent();
 
-            //MainPage = new StartCenterView();
-
             if (Device.RuntimePlatform == Device.UWP)
             {
                 InitNavigation();

@@ -1,4 +1,5 @@
-﻿using LastWorkout.Models;
+﻿using LastWorkout.Facades;
+using LastWorkout.Models;
 using LastWorkout.ViewModels.Base;
 using Realms;
 using System.Collections;
@@ -22,7 +23,7 @@ namespace LastWorkout.ViewModels
 
         public WorkOutListViewModel()
         {
-            Realm realm = Realm.GetInstance();
+            Realm realm = Realm.GetInstance(ConfigDataBaseFacade.GetConfigurationBase());
 
             // Use LINQ to query
             var results = realm.All<WorkOutDay>().Where(d => d.Id > 0).OrderByDescending(w =>w.WorkOutDate);
@@ -35,9 +36,6 @@ namespace LastWorkout.ViewModels
             }
 
             ListItems = list;
-
-            string sdfasf = "";
-          
         }
     }
 }
