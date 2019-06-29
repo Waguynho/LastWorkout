@@ -18,7 +18,7 @@ namespace LastWorkout.ViewModels
 
         }
 
-        public ICommand NextPageCommand => new Command(async () => await GoHelloView());
+        public ICommand NextPageCommand => new Command(async () => await GoWorkoutListView());
 
         public ICommand WorkOutsListCommand => new Command(async () => await GoWorkOutsView());
 
@@ -42,14 +42,13 @@ namespace LastWorkout.ViewModels
             }
         }
 
-        private async Task GoHelloView()
+        private async Task GoWorkoutListView()
         {
             IsBusy = true;
 
             try
             {
                 await NavigationService.NavigateToAsync<RegisterWorkOutViewModel>();
-                //await NavigationService.NavigateToAsync<HelloViewModel>();
             }
             catch (System.Exception e)
             {
@@ -67,7 +66,7 @@ namespace LastWorkout.ViewModels
 
             try
             {
-                await NavigationService.NavigateToAsync<HelloViewModel>();
+                await NavigationService.NavigateToAsync<WorkOutListViewModel>();
             }
             catch (System.Exception e)
             {

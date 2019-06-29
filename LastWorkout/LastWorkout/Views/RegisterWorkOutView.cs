@@ -1,5 +1,6 @@
 ﻿using LastWorkout.CustomControls;
 using LastWorkout.Interfaces;
+using LastWorkout.Statics;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,6 +23,7 @@ namespace LastWorkout.Views
             datePicker.Date = DateTime.Now;
             datePicker.BackgroundColor = Color.Orange;
             datePicker.TextColor = Color.White;
+            datePicker.Format = GlobalVariables.DateFormat;
             datePicker.SetBinding(DatePicker.DateProperty, "WorkOutDate");
 
             WPicker<ISelectorItem> picker = new WPicker<ISelectorItem>();
@@ -31,13 +33,13 @@ namespace LastWorkout.Views
             picker.SetBinding(WPicker<ISelectorItem>.ItemsObjectProperty, "Levels");
             picker.SetBinding(WPicker<ISelectorItem>.SelectedObjectProperty, "SelectedLevel");
 
-
             Editor editor = new Editor();
             editor.Keyboard = Keyboard.Text;
             editor.Placeholder = "Observações";
             editor.MinimumHeightRequest = 10;
             editor.TextColor = Color.White;
             editor.BackgroundColor = Color.Orange;
+            editor.VerticalOptions = LayoutOptions.FillAndExpand;
             editor.SetBinding(Editor.TextProperty, "Observation");
 
             Button buttonSave = new Button();
@@ -46,8 +48,6 @@ namespace LastWorkout.Views
             buttonSave.BackgroundColor = Color.White;
             buttonSave.BorderColor = Color.Orange;
             buttonSave.SetBinding(Button.CommandProperty, "SaveCommand");
-
-
 
             StackLayout stack = new StackLayout();
             stack.BackgroundColor = Color.Black;
@@ -62,6 +62,5 @@ namespace LastWorkout.Views
             stack.Children.Add(buttonSave);
             Content = stack;           
         }
-
     }
 }

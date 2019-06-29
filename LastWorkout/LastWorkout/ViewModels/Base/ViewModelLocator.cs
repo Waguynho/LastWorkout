@@ -42,7 +42,7 @@ namespace LastWorkout.ViewModels.Base
         private static void RegisterViewModels()
         {
             _container.Register<StartCenterViewModel>();
-            _container.Register<HelloViewModel>();
+            _container.Register<WorkOutListViewModel>();
             _container.Register<RegisterWorkOutViewModel>();
         }
 

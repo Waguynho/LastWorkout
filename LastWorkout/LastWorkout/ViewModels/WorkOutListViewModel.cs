@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace LastWorkout.ViewModels
 {
-    public class HelloViewModel : ViewModelBase
+    public class WorkOutListViewModel : ViewModelBase
     {
         private IList<WorkOutDay> listItems;
         public IList<WorkOutDay> ListItems
@@ -20,7 +20,7 @@ namespace LastWorkout.ViewModels
             }
         }
 
-        public HelloViewModel()
+        public WorkOutListViewModel()
         {
             Realm realm = Realm.GetInstance();
 

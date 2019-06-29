@@ -5,11 +5,11 @@ using Xamarin.Forms.Xaml;
 namespace LastWorkout.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class HelloView : ContentPage
+	public partial class WorkOutListView : ContentPage
 	{
-		public HelloView ()
+		public WorkOutListView ()
 		{
-			InitializeComponent ();            
+			InitializeComponent();            
 		}
 	}
 }

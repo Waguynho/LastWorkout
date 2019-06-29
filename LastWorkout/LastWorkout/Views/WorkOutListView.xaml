@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LastWorkout.Views.HelloView"
-             xmlns:viewModelBase="clr-namespace:LastWorkout.ViewModels.Base;assembly=LastWorkout"
+             xmlns:viewModelBase="clr-namespace:LastWorkout.ViewModels.Base"
+             xmlns:statics="clr-namespace:LastWorkout.Statics;assembly=LastWorkout"
+             x:Class="LastWorkout.Views.WorkOutListView"
              viewModelBase:ViewModelLocator.AutoWireViewModel="true" 
              NavigationPage.HasNavigationBar="True"             
              BackgroundColor="{StaticResource BlackColor}"
@@ -10,8 +11,7 @@
 
     <ContentPage.Content>
 
-
-        <ListView  x:Name="listView" ItemsSource="{Binding ListItems}" BackgroundColor="Black" SeparatorVisibility="Default">
+        <ListView  x:Name="listView" ItemsSource="{Binding ListItems}" HasUnevenRows="True" BackgroundColor="Black" SeparatorVisibility="Default">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -19,7 +19,7 @@
                         Orientation="Vertical">
                             <StackLayout Orientation="Horizontal" BackgroundColor="White" Padding="10" HorizontalOptions="FillAndExpand">
 
-                                <Label Text="{Binding WorkOutDate, StringFormat='{0:dddd, dd MMMM}'}"
+                                <Label Text="{Binding WorkOutDate, StringFormat={x:Static statics:GlobalVariables.DateFormatXaml} }"
                                 HorizontalOptions="StartAndExpand" 
                                 TextColor="Orange" />
                                 

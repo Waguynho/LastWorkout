@@ -120,7 +120,7 @@ namespace LastWorkout.ViewModels
                 bool success = realm.Add(workOutDay).IsValid;
                 if (success)
                 {
-                    PageContext.DisplayAlert("aviso", "Salvou!", "cancel");
+                    PageContext.DisplayAlert("aviso", "Salvou!", "ok");
                 }
             });
         }
