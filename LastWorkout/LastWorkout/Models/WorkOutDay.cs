@@ -15,5 +15,7 @@ namespace LastWorkout.Models
         public DateTimeOffset  WorkOutDate { get; set; }
 
         public Level Level { get; set; }
+
+        public WorkOut WorkOut { get; set; }
     }
 }

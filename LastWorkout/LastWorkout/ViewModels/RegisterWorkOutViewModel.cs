@@ -27,6 +27,17 @@ namespace LastWorkout.ViewModels
             }
         }
 
+        private IList<ISelectorItem> workOuts;
+        public IList<ISelectorItem> WorkOuts
+        {
+            get { return workOuts; }
+            set
+            {
+                workOuts = value;
+                RaisePropertyChanged(() => WorkOuts);
+            }
+        }
+
         private ISelectorItem selectedLevel;
         public ISelectorItem SelectedLevel
         {
@@ -38,14 +49,31 @@ namespace LastWorkout.ViewModels
             }
         }
 
+        private ISelectorItem selectedWorkOut;
+        public ISelectorItem SelectedWorkOut
+        {
+            get { return selectedWorkOut; }
+            set
+            {
+                if (selectedWorkOut != value)
+                {
+                    selectedWorkOut = value;
+                    RaisePropertyChanged(() => SelectedWorkOut);
+                }
+            }
+        }
+
         private DateTime workOutDate = DateTime.Now;
         public DateTime WorkOutDate
         {
             get { return workOutDate; }
             set
             {
-                workOutDate = value;
-                RaisePropertyChanged(() => WorkOutDate);
+                if (workOutDate != value)
+                {
+                    workOutDate = value;
+                    RaisePropertyChanged(() => WorkOutDate);
+                }
             }
         }
 
@@ -76,6 +104,8 @@ namespace LastWorkout.ViewModels
             SaveCommand = SaveCommand == null ? SaveCommand = new Command(async () => await Save()) : SaveCommand;
 
             LoadLevels();
+
+            LoadWorkOuts();
         }
 
         private void LoadLevels()
@@ -87,6 +117,15 @@ namespace LastWorkout.ViewModels
             Levels = levelItems.ToList<ISelectorItem>();
         }
 
+        private void LoadWorkOuts()
+        {
+            Realm realm = Realm.GetInstance(ConfigDataBaseFacade.GetConfigurationBase());
+
+            IList<WorkOut> workOutItems = realm.All<WorkOut>().OrderBy(l => l.Code).ToList<WorkOut>();
+
+            WorkOuts = workOutItems.ToList<ISelectorItem>();
+        }
+
         private async Task Save()
         {
             IsBusy = true;
@@ -94,11 +133,11 @@ namespace LastWorkout.ViewModels
             try
             {
                 WorkOutDay workOutDay = new WorkOutDay();
-                //workOutDay.WorkOutLevel = SelectedLevel.Code;
-                workOutDay.Observasion = Observation;
                 workOutDay.WorkOutDate = WorkOutDate;
                 workOutDay.Id = WorkOutDate.Ticks;
                 workOutDay.Level = (Level)SelectedLevel;
+                workOutDay.WorkOut = (WorkOut)SelectedWorkOut;
+                workOutDay.Observasion = Observation;
 
                 SaveWorkOutDay(workOutDay);
             }
@@ -113,7 +152,7 @@ namespace LastWorkout.ViewModels
 
         private void SaveWorkOutDay(WorkOutDay workOutDay)
         {
-            Realm realm = Realm.GetInstance(ConfigDataBaseFacade.GetConfigurationBase()); 
+            Realm realm = Realm.GetInstance(ConfigDataBaseFacade.GetConfigurationBase());
 
             realm.Write(() =>
             {

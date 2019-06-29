@@ -22,7 +22,11 @@ namespace LastWorkout.Facades
         {
             FillLevelsDictionary();
 
+            FillWorkOutsDictionary();
+
             CreateLevels();
+
+            CreateWorkOuts();
         }
 
         public static RealmConfiguration GetConfigurationBase()
@@ -37,7 +41,7 @@ namespace LastWorkout.Facades
             string fullName = string.Concat( dataBasePath , Path.DirectorySeparatorChar, GlobalVariables.DataBaseName);
 
             RealmConfiguration config = new RealmConfiguration(fullName);
-            config.SchemaVersion = 1;
+            config.SchemaVersion = 2;
            
             return config;
         }
@@ -84,11 +88,11 @@ namespace LastWorkout.Facades
                 {
                     foreach (int code in WorkOuts.Keys)
                     {
-                        WorkOut level = realm.Find<WorkOut>(code);
+                        WorkOut workOut = realm.Find<WorkOut>(code);
 
-                        if (level == null)
+                        if (workOut == null)
                         {
-                            level = CreateWorkOut(realm, code);
+                            workOut = CreateWorkOut(realm, code);
                         }
                     }
 
@@ -120,7 +124,7 @@ namespace LastWorkout.Facades
         {
             WorkOut workOut = new WorkOut();
             workOut.Code = code;
-            workOut.Description = Levels[code];
+            workOut.Description = WorkOuts[code];
 
             realm.Add(workOut);
             return workOut;

@@ -10,14 +10,13 @@ namespace LastWorkout.Views
 {
     public class RegisterWorkOutView : ContentPage
     {
-        Label labelPresentation = new Label();
-
         public RegisterWorkOutView()
         {
             Title = "Register Workout";            
 
             Label dateWorkoutLabel = new Label();
             dateWorkoutLabel.Text = "WorkOut Date";
+            dateWorkoutLabel.TextColor = Color.White;
 
             DatePicker datePicker = new DatePicker();
             datePicker.Date = DateTime.Now;
@@ -26,19 +25,26 @@ namespace LastWorkout.Views
             datePicker.Format = GlobalVariables.DateFormat;
             datePicker.SetBinding(DatePicker.DateProperty, "WorkOutDate");
 
-            WPicker<ISelectorItem> picker = new WPicker<ISelectorItem>();
-            picker.Title = "Workout Level";
-            picker.TextColor = Color.White;
-            picker.BackgroundColor = Color.Orange;
-            picker.SetBinding(WPicker<ISelectorItem>.ItemsObjectProperty, "Levels");
-            picker.SetBinding(WPicker<ISelectorItem>.SelectedObjectProperty, "SelectedLevel");
+            WPicker<ISelectorItem> pickerLevel = new WPicker<ISelectorItem>();
+            pickerLevel.Title = "Workout Level";
+            pickerLevel.TextColor = Color.White;
+            pickerLevel.BackgroundColor = Color.Orange;
+            pickerLevel.SetBinding(WPicker<ISelectorItem>.ItemsObjectProperty, "Levels");
+            pickerLevel.SetBinding(WPicker<ISelectorItem>.SelectedObjectProperty, "SelectedLevel");
+
+            WPicker<ISelectorItem> pickerWorkout = new WPicker<ISelectorItem>();
+            pickerWorkout.Title = "Workout";
+            pickerWorkout.TextColor = Color.White;
+            pickerWorkout.BackgroundColor = Color.Orange;
+            pickerWorkout.SetBinding(WPicker<ISelectorItem>.ItemsObjectProperty, "WorkOuts");
+            pickerWorkout.SetBinding(WPicker<ISelectorItem>.SelectedObjectProperty, "SelectedWorkOut");
 
             Editor editor = new Editor();
             editor.Keyboard = Keyboard.Text;
             editor.Placeholder = "Observações";
             editor.MinimumHeightRequest = 10;
-            editor.TextColor = Color.White;
-            editor.BackgroundColor = Color.Orange;
+            editor.TextColor = Color.Orange;
+            editor.BackgroundColor = Color.White;
             editor.VerticalOptions = LayoutOptions.FillAndExpand;
             editor.SetBinding(Editor.TextProperty, "Observation");
 
@@ -57,9 +63,11 @@ namespace LastWorkout.Views
 
             stack.Children.Add(dateWorkoutLabel);
             stack.Children.Add(datePicker);
-            stack.Children.Add(picker);
+            stack.Children.Add(pickerLevel);
+            stack.Children.Add(pickerWorkout);
             stack.Children.Add(editor);
             stack.Children.Add(buttonSave);
+
             Content = stack;           
         }
     }

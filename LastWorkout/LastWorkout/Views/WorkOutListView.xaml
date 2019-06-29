@@ -22,8 +22,8 @@
                                 <Label Text="{Binding WorkOutDate, StringFormat={x:Static statics:GlobalVariables.DateFormatXaml} }"
                                 HorizontalOptions="StartAndExpand" 
                                 TextColor="Orange" />
-                                
-                                <Label Text="{Binding Observasion}"
+
+                                <Label Text="{Binding WorkOut.Description}"
                                 TextColor="Orange"  HorizontalOptions="Center"/>
 
                                 <Label Text="{Binding Level.Description}"
