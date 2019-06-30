@@ -61,6 +61,15 @@ namespace LastWorkout.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DDDD!.
+        /// </summary>
+        public static string DDD {
+            get {
+                return ResourceManager.GetString("DDD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register WorkOut.
         /// </summary>
         public static string register_workout {
@@ -88,7 +97,7 @@ namespace LastWorkout.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Warning.
+        ///   Looks up a localized string similar to Warning!.
         /// </summary>
         public static string warning {
             get {
@@ -97,7 +106,7 @@ namespace LastWorkout.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to WorkOut History.
+        ///   Looks up a localized string similar to Work Out History.
         /// </summary>
         public static string workout_list {
             get {

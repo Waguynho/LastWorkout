@@ -22,11 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Localization\Lang.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Lang.resx</DependentUpon>
-    </Compile>
     <Compile Update="Views\WorkOutListView.xaml.cs">
       <DependentUpon>WorkOutListView.xaml</DependentUpon>
     </Compile>
@@ -36,9 +31,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Localization\Lang.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Lang.Designer.cs</LastGenOutput>
+    <EmbeddedResource Update="Localization\Lang.pt-BR.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Lang.en-US.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Generator></Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CustomNavigationView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -46,5 +44,20 @@
     <EmbeddedResource Update="Views\WorkOutListView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\CustomNavigationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\StartCenterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\WorkOutListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
   </ItemGroup>
 </Project>
