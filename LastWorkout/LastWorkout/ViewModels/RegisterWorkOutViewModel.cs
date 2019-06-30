@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Linq;
 using Xamarin.Forms;
 using LastWorkout.Facades;
+using LastWorkout.Localization;
 
 namespace LastWorkout.ViewModels
 {
@@ -159,7 +160,7 @@ namespace LastWorkout.ViewModels
                 bool success = realm.Add(workOutDay).IsValid;
                 if (success)
                 {
-                    PageContext.DisplayAlert("aviso", "Salvou!", "ok");
+                    PageContext.DisplayAlert(Lang.warning, Lang.success_save, "ok");
                 }
             });
         }

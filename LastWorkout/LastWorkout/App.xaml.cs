@@ -1,4 +1,5 @@
 using LastWorkout.Facades;
+using LastWorkout.Localization;
 using LastWorkout.Services.Navigation;
 using LastWorkout.ViewModels.Base;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace LastWorkout
 		public App ()
 		{
 			InitializeComponent();
+
+            //Lang.Culture = new System.Globalization.CultureInfo("pt-BR");
 
             if (Device.RuntimePlatform == Device.UWP)
             {

@@ -22,6 +22,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Localization\Lang.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Lang.resx</DependentUpon>
+    </Compile>
     <Compile Update="Views\WorkOutListView.xaml.cs">
       <DependentUpon>WorkOutListView.xaml</DependentUpon>
     </Compile>
@@ -31,6 +36,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Localization\Lang.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\CustomNavigationView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

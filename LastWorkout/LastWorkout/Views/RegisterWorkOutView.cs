@@ -1,5 +1,6 @@
 ﻿using LastWorkout.CustomControls;
 using LastWorkout.Interfaces;
+using LastWorkout.Localization;
 using LastWorkout.Statics;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace LastWorkout.Views
     {
         public RegisterWorkOutView()
         {
-            Title = "Register Workout";            
+            SetTitlePage();
 
             Label dateWorkoutLabel = new Label();
             dateWorkoutLabel.Text = "WorkOut Date";
@@ -49,8 +50,8 @@ namespace LastWorkout.Views
             editor.SetBinding(Editor.TextProperty, "Observation");
 
             Button buttonSave = new Button();
-            buttonSave.Text = "Save";
             buttonSave.TextColor = Color.Black;
+            buttonSave.Text = Lang.save;
             buttonSave.BackgroundColor = Color.White;
             buttonSave.BorderColor = Color.Orange;
             buttonSave.SetBinding(Button.CommandProperty, "SaveCommand");
@@ -68,7 +69,12 @@ namespace LastWorkout.Views
             stack.Children.Add(editor);
             stack.Children.Add(buttonSave);
 
-            Content = stack;           
+            Content = stack;
+        }
+
+        private void SetTitlePage()
+        {
+            Title = Lang.register_workout;
         }
     }
 }
