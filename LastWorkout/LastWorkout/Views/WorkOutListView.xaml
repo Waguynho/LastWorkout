@@ -7,7 +7,7 @@
              viewModelBase:ViewModelLocator.AutoWireViewModel="true" 
              NavigationPage.HasNavigationBar="True"             
              BackgroundColor="{StaticResource BlackColor}"
-             Title="WorkOut List">    
+             Title="{Binding Title}">    
 
     <ContentPage.Content>
 

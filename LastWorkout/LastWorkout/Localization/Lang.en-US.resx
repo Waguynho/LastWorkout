@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="register_workout" xml:space="preserve">
-    <value>Register WorkOut</value>
+    <value>Register Workout</value>
   </data>
   <data name="workout_list" xml:space="preserve">
-    <value>Work Out History</value>
+    <value>Workout History</value>
   </data>
   <data name="success_save" xml:space="preserve">
     <value>Save Success</value>
@@ -131,5 +131,8 @@
   </data>
   <data name="save" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="welcome" xml:space="preserve">
+    <value>Welcome to Last WorkOut!</value>
   </data>
 </root>

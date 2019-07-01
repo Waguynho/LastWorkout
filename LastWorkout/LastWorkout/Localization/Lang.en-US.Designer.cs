@@ -113,5 +113,13 @@ namespace LastWorkout.Localization {
                 return ResourceManager.GetString("workout_list", resourceCulture);
             }
         }
+
+        public static string welcome
+        {
+            get
+            {
+                return ResourceManager.GetString("welcome", resourceCulture);
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using LastWorkout.Facades;
+using LastWorkout.Localization;
 using LastWorkout.Models;
 using LastWorkout.ViewModels.Base;
 using Realms;
@@ -21,14 +22,33 @@ namespace LastWorkout.ViewModels
             }
         }
 
+        private string title;
+
+        public string Title
+        {
+            get { return title; }
+            set
+            {
+                title = value;
+                RaisePropertyChanged(() => Title);
+            }
+        }
+
+
         public WorkOutListViewModel()
+        {
+            LoadWorkOutDays();
+
+            SetTitle();
+        }
+
+        private void LoadWorkOutDays()
         {
             Realm realm = Realm.GetInstance(ConfigDataBaseFacade.GetConfigurationBase());
 
-            // Use LINQ to query
-            var results = realm.All<WorkOutDay>().Where(d => d.Id > 0).OrderByDescending(w =>w.WorkOutDate);
+            var results = realm.All<WorkOutDay>().Where(d => d.Id > 0).OrderByDescending(w => w.WorkOutDate);
 
-            IList<WorkOutDay> list = new List<WorkOutDay> (results.Count()); // => 0 because no dogs have been added yet
+            IList<WorkOutDay> list = new List<WorkOutDay>(results.Count()); // => 0 because no dogs have been added yet
 
             foreach (WorkOutDay item in results)
             {
@@ -36,6 +56,11 @@ namespace LastWorkout.ViewModels
             }
 
             ListItems = list;
+        }
+
+        private void SetTitle()
+        {
+            Title = Lang.workout_list;
         }
     }
 }

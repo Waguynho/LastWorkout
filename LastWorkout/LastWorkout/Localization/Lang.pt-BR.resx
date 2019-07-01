@@ -132,4 +132,7 @@
   <data name="save" xml:space="preserve">
     <value>Salvar</value>
   </data>
+  <data name="welcome" xml:space="preserve">
+    <value>Bem vindo a Last WorkOut!</value>
+  </data>
 </root>
