@@ -122,7 +122,7 @@ namespace LastWorkout.ViewModels
         {
             Realm realm = Realm.GetInstance(ConfigDataBaseFacade.GetConfigurationBase());
 
-            IList<WorkOut> workOutItems = realm.All<WorkOut>().OrderBy(l => l.Code).ToList<WorkOut>();
+            IEnumerable<WorkOut> workOutItems = realm.All<WorkOut>().OrderBy(l => l.Code).ToList<WorkOut>().Select(x => new WorkOut { Description = x.Description, Code = x.Code });
 
             WorkOuts = workOutItems.ToList<ISelectorItem>();
         }

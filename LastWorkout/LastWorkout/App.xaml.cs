@@ -53,5 +53,6 @@ namespace LastWorkout
 		{
 			// Handle when your app resumes
 		}
-	}
+
+    }
 }

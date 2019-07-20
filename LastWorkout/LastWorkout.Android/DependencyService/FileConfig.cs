@@ -1,6 +1,5 @@
 ﻿using LastWorkout.Droid.DependencyService;
 using LastWorkout.Interfaces.Hardware;
-using System;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(FileConfig))]
@@ -14,5 +13,7 @@ namespace LastWorkout.Droid.DependencyService
           
             return externalStorage+"/";
         }
+
+
     }
 }
