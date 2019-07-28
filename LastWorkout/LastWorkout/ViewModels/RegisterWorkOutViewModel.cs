@@ -157,7 +157,7 @@ namespace LastWorkout.ViewModels
 
             realm.Write(() =>
             {
-                bool success = realm.Add(workOutDay).IsValid;
+                bool success = realm.Add(workOutDay, true).IsValid;
                 if (success)
                 {
                     PageContext.DisplayAlert(Lang.warning, Lang.success_save, "ok");
