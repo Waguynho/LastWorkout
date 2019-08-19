@@ -1,6 +1,5 @@
-﻿
-using Android;
-using Android.App;
+﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 
@@ -14,27 +13,42 @@ namespace LastWorkout.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
-            CheckAppPermissions();
-
             base.OnCreate(bundle);
+            this.bundle = bundle;
+            this.context = this;
+
+
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());          
+            LoadApplication(new App());
+
+            Intent p = new Intent(this, typeof(PermissionActivity));
+
+            StartActivityForResult(p, 1);
+            ///
+            //LoadApplication(new App());
         }
 
-        private void CheckAppPermissions()
+        private Context context { get; set; }
+        private Bundle bundle { get; set; }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
-            if ((int)Build.VERSION.SdkInt < 23)
+            base.OnActivityResult(requestCode, resultCode, data);
+
+            if (requestCode == 1)
             {
-                return;
-            }
-            else
-            {
-                if (PackageManager.CheckPermission(Manifest.Permission.ReadExternalStorage, PackageName) != Permission.Granted
-                    && PackageManager.CheckPermission(Manifest.Permission.WriteExternalStorage, PackageName) != Permission.Granted)
+                if (resultCode == Result.Ok)
                 {
-                    var permissions = new string[] { Manifest.Permission.ReadExternalStorage, Manifest.Permission.WriteExternalStorage };
-                    RequestPermissions(permissions, 1);
+
+                    global::Xamarin.Forms.Forms.Init(context, bundle);
+                    LoadApplication(new App());
+
+
+                }
+                if (resultCode == Result.Canceled)
+                {
+                    //Write your code if there's no result
                 }
             }
         }

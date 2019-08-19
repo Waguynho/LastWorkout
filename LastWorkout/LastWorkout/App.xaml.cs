@@ -41,7 +41,7 @@ namespace LastWorkout
 
             ConfigDataBaseFacade.CreateBasicTables();
 
-            base.OnResume();
+            
         }
 
 		protected override void OnSleep ()
