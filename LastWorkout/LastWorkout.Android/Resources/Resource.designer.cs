@@ -4345,26 +4345,26 @@ namespace LastWorkout.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f020131
-			public const int avd_hide_password_1 = 2130837809;
-			
 			// aapt resource value: 0x7f020132
-			public const int avd_hide_password_2 = 2130837810;
+			public const int avd_hide_password_1 = 2130837810;
 			
 			// aapt resource value: 0x7f020133
-			public const int avd_hide_password_3 = 2130837811;
+			public const int avd_hide_password_2 = 2130837811;
+			
+			// aapt resource value: 0x7f020134
+			public const int avd_hide_password_3 = 2130837812;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f020134
-			public const int avd_show_password_1 = 2130837812;
-			
 			// aapt resource value: 0x7f020135
-			public const int avd_show_password_2 = 2130837813;
+			public const int avd_show_password_1 = 2130837813;
 			
 			// aapt resource value: 0x7f020136
-			public const int avd_show_password_3 = 2130837814;
+			public const int avd_show_password_2 = 2130837814;
+			
+			// aapt resource value: 0x7f020137
+			public const int avd_show_password_3 = 2130837815;
 			
 			// aapt resource value: 0x7f020055
 			public const int design_bottom_navigation_item_background = 2130837589;
@@ -5005,11 +5005,11 @@ namespace LastWorkout.Droid
 			// aapt resource value: 0x7f020129
 			public const int notification_icon_background = 2130837801;
 			
-			// aapt resource value: 0x7f02012f
-			public const int notification_template_icon_bg = 2130837807;
-			
 			// aapt resource value: 0x7f020130
-			public const int notification_template_icon_low_bg = 2130837808;
+			public const int notification_template_icon_bg = 2130837808;
+			
+			// aapt resource value: 0x7f020131
+			public const int notification_template_icon_low_bg = 2130837809;
 			
 			// aapt resource value: 0x7f02012a
 			public const int notification_tile_bg = 2130837802;
@@ -5021,10 +5021,13 @@ namespace LastWorkout.Droid
 			public const int pench_press = 2130837804;
 			
 			// aapt resource value: 0x7f02012d
-			public const int tooltip_frame_dark = 2130837805;
+			public const int splash = 2130837805;
 			
 			// aapt resource value: 0x7f02012e
-			public const int tooltip_frame_light = 2130837806;
+			public const int tooltip_frame_dark = 2130837806;
+			
+			// aapt resource value: 0x7f02012f
+			public const int tooltip_frame_light = 2130837807;
 			
 			static Drawable()
 			{
@@ -5201,6 +5204,9 @@ namespace LastWorkout.Droid
 			// aapt resource value: 0x7f090060
 			public const int default_activity_button = 2131296352;
 			
+			// aapt resource value: 0x7f0900d1
+			public const int demoImageView = 2131296465;
+			
 			// aapt resource value: 0x7f090092
 			public const int design_bottom_sheet = 2131296402;
 			
@@ -5324,14 +5330,14 @@ namespace LastWorkout.Droid
 			// aapt resource value: 0x7f0900cb
 			public const int main_toolbar = 2131296459;
 			
-			// aapt resource value: 0x7f0900d5
-			public const int masked = 2131296469;
+			// aapt resource value: 0x7f0900d6
+			public const int masked = 2131296470;
 			
 			// aapt resource value: 0x7f0900bd
 			public const int media_actions = 2131296445;
 			
-			// aapt resource value: 0x7f0900d3
-			public const int message = 2131296467;
+			// aapt resource value: 0x7f0900d4
+			public const int message = 2131296468;
 			
 			// aapt resource value: 0x7f090031
 			public const int middle = 2131296305;
@@ -5549,8 +5555,8 @@ namespace LastWorkout.Droid
 			// aapt resource value: 0x7f090025
 			public const int showTitle = 2131296293;
 			
-			// aapt resource value: 0x7f0900d1
-			public const int sliding_tabs = 2131296465;
+			// aapt resource value: 0x7f0900d2
+			public const int sliding_tabs = 2131296466;
 			
 			// aapt resource value: 0x7f09008d
 			public const int smallLabel = 2131296397;
@@ -5630,8 +5636,8 @@ namespace LastWorkout.Droid
 			// aapt resource value: 0x7f09006f
 			public const int title_template = 2131296367;
 			
-			// aapt resource value: 0x7f0900d2
-			public const int toolbar = 2131296466;
+			// aapt resource value: 0x7f0900d3
+			public const int toolbar = 2131296467;
 			
 			// aapt resource value: 0x7f09003e
 			public const int top = 2131296318;
@@ -5669,8 +5675,8 @@ namespace LastWorkout.Droid
 			// aapt resource value: 0x7f090016
 			public const int view_offset_helper = 2131296278;
 			
-			// aapt resource value: 0x7f0900d4
-			public const int visible = 2131296468;
+			// aapt resource value: 0x7f0900d5
+			public const int visible = 2131296469;
 			
 			// aapt resource value: 0x7f0900af
 			public const int volume_item_container = 2131296431;
@@ -5970,16 +5976,19 @@ namespace LastWorkout.Droid
 			public const int ShellContent = 2130968643;
 			
 			// aapt resource value: 0x7f040044
-			public const int support_simple_spinner_dropdown_item = 2130968644;
+			public const int SplashScreen = 2130968644;
 			
 			// aapt resource value: 0x7f040045
-			public const int Tabbar = 2130968645;
+			public const int support_simple_spinner_dropdown_item = 2130968645;
 			
 			// aapt resource value: 0x7f040046
-			public const int Toolbar = 2130968646;
+			public const int Tabbar = 2130968646;
 			
 			// aapt resource value: 0x7f040047
-			public const int tooltip = 2130968647;
+			public const int Toolbar = 2130968647;
+			
+			// aapt resource value: 0x7f040048
+			public const int tooltip = 2130968648;
 			
 			static Layout()
 			{
