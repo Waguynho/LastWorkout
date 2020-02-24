@@ -1,4 +1,5 @@
-﻿using LastWorkout.Services.Navigation;
+﻿using LastWorkout.Localization;
+using LastWorkout.Services.Navigation;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -9,6 +10,9 @@ namespace LastWorkout.ViewModels.Base
         protected readonly INavigationService NavigationService;
 
         private bool _isBusy;
+
+        public Page PageContext { get; set; }
+
 
         public bool IsBusy
         {
@@ -34,6 +38,26 @@ namespace LastWorkout.ViewModels.Base
             return Task.FromResult(false);
         }
 
-        public Page PageContext { get; set; }
+        protected virtual void ShowReturnMenssage(string msgError)
+        {
+            if (string.IsNullOrEmpty(msgError))
+            {
+                ShowMenssageSuccess();
+            }
+            else
+            {
+                ShowMenssageError(msgError);
+            }
+        }
+
+        protected virtual void ShowMenssageError(string msgError)
+        {
+            PageContext.DisplayAlert(Lang.warning, msgError, "ok");
+        }
+
+        protected virtual void ShowMenssageSuccess()
+        {
+            PageContext.DisplayAlert("", Lang.success_save, "ok");
+        }
     }
 }

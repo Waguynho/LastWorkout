@@ -1,21 +1,24 @@
-﻿using LastWorkout.Interfaces;
+﻿using LastWorkout.DataAccess;
+using LastWorkout.DataAccess.Interfaces;
+using LastWorkout.Facades;
+using LastWorkout.Interfaces;
+using LastWorkout.Localization;
 using LastWorkout.Models;
 using LastWorkout.ViewModels.Base;
-using Realms;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Linq;
 using Xamarin.Forms;
-using LastWorkout.Facades;
-using LastWorkout.Localization;
 
 namespace LastWorkout.ViewModels
 {
     public class RegisterWorkOutViewModel : ViewModelBase
     {
+
+        int IdRecordDay;
 
         private IList<ISelectorItem> levels;
         public IList<ISelectorItem> Levels
@@ -109,20 +112,24 @@ namespace LastWorkout.ViewModels
             LoadWorkOuts();
         }
 
-        private void LoadLevels()
+        private async void LoadLevels()
         {
-            Realm realm = Realm.GetInstance(ConfigDataBaseFacade.GetConfigurationBase());
+            try
+            {
+                IList<Level> levelItems = DependencyService.Resolve<ILevelDataAccess>().GetAll().OrderBy(l => l.Code).ToList<Level>();
 
-            IList<Level> levelItems = realm.All<Level>().OrderBy(l => l.Code).ToList<Level>();
+                Levels = levelItems.ToList<ISelectorItem>();
+            }
+            catch (Exception e)
+            {
 
-            Levels = levelItems.ToList<ISelectorItem>();
+                await PageContext.DisplayAlert("erro", e?.Message, "cancel");
+            }       
         }
 
         private void LoadWorkOuts()
         {
-            Realm realm = Realm.GetInstance(ConfigDataBaseFacade.GetConfigurationBase());
-
-            IEnumerable<WorkOut> workOutItems = realm.All<WorkOut>().OrderBy(l => l.Code).ToList<WorkOut>().Select(x => new WorkOut { Description = x.Description, Code = x.Code });
+            IEnumerable<WorkOut> workOutItems = DependencyService.Resolve<IWorkOutDataAccess>().GetAll().OrderBy(l => l.Code).ToList<WorkOut>().Select(x => new WorkOut { Description = x.Description, Code = x.Code });
 
             WorkOuts = workOutItems.ToList<ISelectorItem>();
         }
@@ -134,18 +141,18 @@ namespace LastWorkout.ViewModels
             try
             {
                 WorkOutDay workOutDay = new WorkOutDay();
-                workOutDay.WorkOutDate = WorkOutDate;
-                workOutDay.Id = WorkOutDate.Ticks;
+                workOutDay.Id = (IdRecordDay > 0) ? IdRecordDay : workOutDay.Id;
+                workOutDay.WorkOutDate = WorkOutDate;                
                 workOutDay.Level = (Level)SelectedLevel;
                 workOutDay.WorkOut = (WorkOut)SelectedWorkOut;
                 workOutDay.Observasion = Observation;
 
                 SaveWorkOutDay(workOutDay);
+                IdRecordDay = workOutDay.Id;
             }
             catch (System.Exception e)
             {
-                await PageContext.DisplayAlert("erro", e?.Message, "cancel");
-                Console.WriteLine("======== " + e.Message);
+                await PageContext.DisplayAlert("erro", e?.Message, "cancel");                
             }
 
             IsBusy = false;
@@ -153,16 +160,7 @@ namespace LastWorkout.ViewModels
 
         private void SaveWorkOutDay(WorkOutDay workOutDay)
         {
-            Realm realm = Realm.GetInstance(ConfigDataBaseFacade.GetConfigurationBase());
-
-            realm.Write(() =>
-            {
-                bool success = realm.Add(workOutDay, true).IsValid;
-                if (success)
-                {
-                    PageContext.DisplayAlert(Lang.warning, Lang.success_save, "ok");
-                }
-            });
+            DependencyService.Resolve<IWorkOutDayDataAccess>().SaveNew(workOutDay, ShowReturnMenssage);
         }
     }
 }

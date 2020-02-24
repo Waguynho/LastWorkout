@@ -1,3 +1,5 @@
+using LastWorkout.DataAccess;
+using LastWorkout.DataAccess.Interfaces;
 using LastWorkout.Facades;
 using LastWorkout.Localization;
 using LastWorkout.Services.Navigation;
@@ -31,12 +33,14 @@ namespace LastWorkout
         }
 
         protected override void OnStart ()
-		{
+        {
             base.OnStart();
+
+            RegisterDenpendencies();
 
             if (Device.RuntimePlatform != Device.UWP)
             {
-                 InitNavigation();
+                InitNavigation();
             }
 
             ConfigDataBaseFacade.CreateBasicTables();
@@ -44,7 +48,14 @@ namespace LastWorkout
             base.OnResume();
         }
 
-		protected override void OnSleep ()
+        private void RegisterDenpendencies()
+        {
+            DependencyService.Register<ILevelDataAccess, LevelDataAccess>();
+            DependencyService.Register<IWorkOutDayDataAccess, WorkOutDayDataAccess>();
+            DependencyService.Register<IWorkOutDataAccess, WorkOutDataAccess>();
+        }
+
+        protected override void OnSleep ()
 		{
 			// Handle when your app sleeps
 		}

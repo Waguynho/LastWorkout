@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>WsKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
@@ -60,4 +60,6 @@
       <Generator>MSBuild:Compile</Generator>
     </None>
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadXFormsNugetUpgradeInfoBarLastWorkoutHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 </Project>

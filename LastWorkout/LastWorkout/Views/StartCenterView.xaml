@@ -23,8 +23,7 @@
         <Label Text="{Binding HistoryName}" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" 
-           TextColor="White"/>
-        <Button Text="CLICAR" TextColor="White" Command="{Binding WorkOutsListCommand}" ></Button>
+           TextColor="White"/>        
     </StackLayout>
 
 </ContentPage>

@@ -1,11 +1,13 @@
-﻿using LastWorkout.Facades;
+﻿using LastWorkout.DataAccess;
+using LastWorkout.DataAccess.Interfaces;
+using LastWorkout.Facades;
 using LastWorkout.Localization;
 using LastWorkout.Models;
 using LastWorkout.ViewModels.Base;
-using Realms;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Xamarin.Forms;
 
 namespace LastWorkout.ViewModels
 {
@@ -44,11 +46,9 @@ namespace LastWorkout.ViewModels
 
         private void LoadWorkOutDays()
         {
-            Realm realm = Realm.GetInstance(ConfigDataBaseFacade.GetConfigurationBase());
+            IQueryable<WorkOutDay> results = DependencyService.Resolve<IWorkOutDayDataAccess>().GetAll().Where(d => d.Id > 0).OrderByDescending(w => w.WorkOutDate);
 
-            var results = realm.All<WorkOutDay>().Where(d => d.Id > 0).OrderByDescending(w => w.WorkOutDate);
-
-            IList<WorkOutDay> list = new List<WorkOutDay>(results.Count()); // => 0 because no dogs have been added yet
+            IList<WorkOutDay> list = new List<WorkOutDay>(results.Count());
 
             foreach (WorkOutDay item in results)
             {
