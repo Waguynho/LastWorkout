@@ -5,10 +5,10 @@ using System.Text;
 
 namespace LastWorkout.Models
 {
-    public class WorkOutDay: RealmObject
+    public class WorkOutDay: RealmObject, IEntityDataBase
     {
         [PrimaryKey]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         public string  Observasion { get; set; }
 

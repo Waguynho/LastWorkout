@@ -108,9 +108,7 @@ namespace LastWorkout.ViewModels
             }
             catch (System.Exception e)
             {
-
-                Debug.WriteLine("======== " + e.Message);
-                Console.WriteLine("======== " + e.Message);
+                System.Diagnostics.Debug.WriteLine(e.Message);
             }
 
             IsBusy = false;
@@ -124,8 +122,7 @@ namespace LastWorkout.ViewModels
             }
             catch (System.Exception e)
             {
-                Debug.WriteLine("======== " + e.Message);
-                Console.WriteLine("======== " + e.Message);
+                System.Diagnostics.Debug.WriteLine(e.Message);                
             }           
         }
     }
