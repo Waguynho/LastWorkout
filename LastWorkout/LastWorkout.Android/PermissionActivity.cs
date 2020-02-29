@@ -23,6 +23,7 @@ namespace LastWorkout.Droid
         {
             if ((int)Build.VERSION.SdkInt < 23)
             {
+                ComeBack();
                 return;
             }
             else

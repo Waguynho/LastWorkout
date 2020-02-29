@@ -20,9 +20,9 @@ namespace LastWorkout
             //Lang.Culture = new System.Globalization.CultureInfo("en-US");
             Lang.Culture = new System.Globalization.CultureInfo("pt-BR");
 
+                InitNavigation();
             if (Device.RuntimePlatform == Device.UWP)
             {
-                InitNavigation();
             }
         }
 

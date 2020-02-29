@@ -8,6 +8,7 @@ namespace LastWorkout.Droid
     [Activity(Label = "LastWorkout", Icon = "@mipmap/icon", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        
         protected override void OnCreate(Bundle bundle)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -17,16 +18,12 @@ namespace LastWorkout.Droid
             this.bundle = bundle;
             this.context = this;
 
-
-
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
 
             Intent p = new Intent(this, typeof(PermissionActivity));
 
-            StartActivityForResult(p, 1);
-            ///
-            //LoadApplication(new App());
+            StartActivityForResult(p, (int)PermissionsApp.PermissionStartup);  
         }
 
         private Context context { get; set; }
@@ -36,15 +33,12 @@ namespace LastWorkout.Droid
         {
             base.OnActivityResult(requestCode, resultCode, data);
 
-            if (requestCode == 1)
+            if (requestCode == (int)PermissionsApp.PermissionStartup)
             {
                 if (resultCode == Result.Ok)
                 {
-
                     global::Xamarin.Forms.Forms.Init(context, bundle);
                     LoadApplication(new App());
-
-
                 }
                 if (resultCode == Result.Canceled)
                 {
