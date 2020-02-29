@@ -7,9 +7,6 @@
              BackgroundColor="{StaticResource BlackColor}"
              Title="Welcome to LastWorkout"
              x:Class="LastWorkout.Views.StartCenterView">
-    
-    
-
     <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="3">
 
         <customcontrols:WImage Source="legpress.png" Aspect="AspectFit"   TapCommand="{Binding NextPageCommand}" PanCommand="{Binding PanCommand}" PinchCommand="{Binding PinchCommand}" />
@@ -23,7 +20,7 @@
         <Label Text="{Binding HistoryName}" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" 
-           TextColor="White"/>        
+           TextColor="White"/>
     </StackLayout>
 
 </ContentPage>

@@ -35,7 +35,7 @@ namespace LastWorkout.ViewModels.Base
 
         public virtual Task InitializeAsync(object navigationData)
         {
-            return Task.FromResult(false);
+            return Task.FromResult(true);
         }
 
         protected virtual void ShowReturnMenssage(string msgError)

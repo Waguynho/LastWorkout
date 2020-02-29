@@ -17,8 +17,8 @@ namespace LastWorkout
 		{
 			InitializeComponent();
 
-            Lang.Culture = new System.Globalization.CultureInfo("en-US");
-            //Lang.Culture = new System.Globalization.CultureInfo("pt-BR");
+            //Lang.Culture = new System.Globalization.CultureInfo("en-US");
+            Lang.Culture = new System.Globalization.CultureInfo("pt-BR");
 
             if (Device.RuntimePlatform == Device.UWP)
             {

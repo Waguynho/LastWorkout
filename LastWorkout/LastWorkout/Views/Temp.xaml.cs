@@ -10,18 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace LastWorkout.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CustomNavigationView : NavigationPage
+    public partial class Temp : ContentPage
     {
-        public CustomNavigationView() : base()
+        public Temp()
         {
             InitializeComponent();
-            SetHasNavigationBar(this, true);
-        }
-
-        public CustomNavigationView(Page root) : base(root)
-        {
-            InitializeComponent();
-            SetHasNavigationBar(this, true);
         }
     }
 }

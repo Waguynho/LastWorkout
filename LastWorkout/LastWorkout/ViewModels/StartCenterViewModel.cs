@@ -36,11 +36,11 @@ namespace LastWorkout.ViewModels
 
         public ICommand WorkOutsListCommand => new Command(async () => await GoWorkOutsView());
 
-        public ICommand PanCommand => new Command(async () => {
+        public ICommand PanCommand => new Command( () => {
             Console.WriteLine("PAN GESTURE!");
         });
 
-        public ICommand PinchCommand => new Command(async () => {
+        public ICommand PinchCommand => new Command( () => {
             Console.WriteLine("PIN GESTURE!");
         });
 
