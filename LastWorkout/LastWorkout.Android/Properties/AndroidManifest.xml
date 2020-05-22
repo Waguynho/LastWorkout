@@ -3,5 +3,5 @@
 	<uses-sdk android:minSdkVersion="22" android:targetSdkVersion="28" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-	<application android:name="LastWorkout.Droid.DefaultApplication" android:label="LastWorkout.Android"></application>
+	<application android:name="LastWorkout.Droid.DefaultApplication" android:label="Last Workout"></application>
 </manifest>
