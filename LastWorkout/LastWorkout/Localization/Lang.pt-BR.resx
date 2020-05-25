@@ -121,7 +121,7 @@
     <value>Registrar Treino</value>
   </data>
   <data name="workout_list" xml:space="preserve">
-    <value>Histórico de Treinos</value>
+    <value>Listar treinos</value>
   </data>
   <data name="success_save" xml:space="preserve">
     <value>Salvo com sucesso</value>

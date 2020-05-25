@@ -6,16 +6,18 @@
              viewModelBase:ViewModelLocator.AutoWireViewModel="true"
              BackgroundColor="{StaticResource BlackColor}"
              Title="Welcome to LastWorkout"
+             AutomationId="automation_id_startcenter"
+             ClassId="id_startcenter_screen"
              x:Class="LastWorkout.Views.StartCenterView">
     <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="3">
 
-        <customcontrols:WImage Source="legpress.png" Aspect="AspectFit"   TapCommand="{Binding NextPageCommand}" PanCommand="{Binding PanCommand}" PinchCommand="{Binding PinchCommand}" />
+        <customcontrols:WImage Source="legpress.png" Aspect="AspectFit" AutomationId="id_leg_press"   TapCommand="{Binding NextPageCommand}" PanCommand="{Binding PanCommand}" PinchCommand="{Binding PinchCommand}" />
 
         <Label Text="{Binding RegisterWorkout}" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" 
            TextColor="White"/>
-        <customcontrols:WImage Source="pench_press.png" Aspect="AspectFit"   TapCommand="{Binding WorkOutsListCommand}" PanCommand="{Binding PanCommand}" PinchCommand="{Binding PinchCommand}" />
+        <customcontrols:WImage Source="pench_press.png" Aspect="AspectFit" AutomationId="id_leg_pench"  TapCommand="{Binding WorkOutsListCommand}" PanCommand="{Binding PanCommand}" PinchCommand="{Binding PinchCommand}" />
 
         <Label Text="{Binding HistoryName}" 
            HorizontalOptions="Center"

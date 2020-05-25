@@ -20,6 +20,7 @@ namespace LastWorkout.Views
             dateWorkoutLabel.TextColor = Color.White;
 
             DatePicker datePicker = new DatePicker();
+            datePicker.AutomationId = "id_data_treino";
             datePicker.Date = DateTime.Now;
             datePicker.BackgroundColor = Color.Orange;
             datePicker.TextColor = Color.White;
@@ -27,13 +28,16 @@ namespace LastWorkout.Views
             datePicker.SetBinding(DatePicker.DateProperty, "WorkOutDate");
 
             WPicker<ISelectorItem> pickerLevel = new WPicker<ISelectorItem>();
+            pickerLevel.AutomationId = "id_nivel_treino";
             pickerLevel.Title = "Workout Level";
+
             pickerLevel.TextColor = Color.White;
             pickerLevel.BackgroundColor = Color.Orange;
             pickerLevel.SetBinding(WPicker<ISelectorItem>.ItemsObjectProperty, "Levels");
             pickerLevel.SetBinding(WPicker<ISelectorItem>.SelectedObjectProperty, "SelectedLevel");
 
             WPicker<ISelectorItem> pickerWorkout = new WPicker<ISelectorItem>();
+            pickerWorkout.AutomationId = "id_tipo_treino";
             pickerWorkout.Title = "Workout";
             pickerWorkout.TextColor = Color.White;
             pickerWorkout.BackgroundColor = Color.Orange;
@@ -41,6 +45,8 @@ namespace LastWorkout.Views
             pickerWorkout.SetBinding(WPicker<ISelectorItem>.SelectedObjectProperty, "SelectedWorkOut");
 
             Editor editor = new Editor();
+            editor.AutomationId = "id_descricao_treino";
+
             editor.Keyboard = Keyboard.Text;
             editor.Placeholder = "Observações";
             editor.MinimumHeightRequest = 10;
@@ -50,6 +56,8 @@ namespace LastWorkout.Views
             editor.SetBinding(Editor.TextProperty, "Observation");
 
             Button buttonSave = new Button();
+            buttonSave.AutomationId = "id_salvar_treino";
+
             buttonSave.TextColor = Color.Black;
             buttonSave.Text = Lang.save;
             buttonSave.BackgroundColor = Color.White;
@@ -68,8 +76,10 @@ namespace LastWorkout.Views
             stack.Children.Add(pickerWorkout);
             stack.Children.Add(editor);
             stack.Children.Add(buttonSave);
-
+            
             Content = stack;
+            Content.ClassId = "id_register_workout_screen";
+            Content.AutomationId = "automation_id_register_workout";
         }
 
         private void SetTitlePage()

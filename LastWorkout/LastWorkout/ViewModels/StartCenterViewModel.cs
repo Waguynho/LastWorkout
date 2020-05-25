@@ -32,7 +32,7 @@ namespace LastWorkout.ViewModels
             LegPressImage = "legpress.png";
         }
 
-        public ICommand NextPageCommand => new Command(async () => await GoWorkoutListView());
+        public ICommand NextPageCommand => new Command(async () => await GoWorkoutRegisterView());
 
         public ICommand WorkOutsListCommand => new Command(async () => await GoWorkOutsView());
 
@@ -98,9 +98,9 @@ namespace LastWorkout.ViewModels
             RegisterWorkout = Lang.register_workout;
         }
 
-        private async Task GoWorkoutListView()
+        private async Task GoWorkoutRegisterView()
         {
-            IsBusy = true;
+            //IsBusy = true;
 
             try
             {
@@ -111,7 +111,7 @@ namespace LastWorkout.ViewModels
                 System.Diagnostics.Debug.WriteLine(e.Message);
             }
 
-            IsBusy = false;
+            //IsBusy = false;
         }
 
         private async Task GoWorkOutsView()
