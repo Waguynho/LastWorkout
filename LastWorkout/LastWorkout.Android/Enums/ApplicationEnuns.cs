@@ -1,5 +1,5 @@
 ﻿public enum PermissionsApp
 {
-    PermissionStartup = 1,
-    None = 0
+    PermissionStartup = 0,
+    None = 1
 }

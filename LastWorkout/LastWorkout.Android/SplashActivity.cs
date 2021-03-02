@@ -73,15 +73,30 @@ namespace LastWorkout.Droid
 
         private void VerifyPermissions()
         {
-            if (Android.Support.V4.Content.ContextCompat.CheckSelfPermission(this, Manifest.Permission.WriteExternalStorage) == (int)Permission.Granted)
+            Intent p = new Intent(this, typeof(PermissionActivity));
+
+            StartActivityForResult(p, (int)PermissionsApp.PermissionStartup);
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            string param = data.GetStringExtra("WS");
+            if (requestCode == (int)PermissionsApp.PermissionStartup)
             {
-                StartApp();
-            }
-            else
-            {
-                ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.WriteExternalStorage }, 0);
+                if (resultCode == Result.Ok)
+                {
+                    Intent MainActivity = new Intent(this, typeof(MainActivity));
+
+                    StartActivity(MainActivity);
+                }
+                if (resultCode == Result.Canceled)
+                {
+                    //Write your code if there's no result
+                }
             }
         }
+
         #endregion
     }
 }

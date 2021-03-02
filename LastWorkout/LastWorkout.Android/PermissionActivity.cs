@@ -5,7 +5,6 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 
-
 namespace LastWorkout.Droid
 {
     [Activity(Label = "PermissionActivity")]
@@ -28,11 +27,13 @@ namespace LastWorkout.Droid
             }
             else
             {
-                if (PackageManager.CheckPermission(Manifest.Permission.ReadExternalStorage, PackageName) != Permission.Granted
-                    && PackageManager.CheckPermission(Manifest.Permission.WriteExternalStorage, PackageName) != Permission.Granted)
+                var read = PackageManager.CheckPermission(Manifest.Permission.ReadExternalStorage, PackageName);
+                var write = PackageManager.CheckPermission(Manifest.Permission.WriteExternalStorage, PackageName);
+                var call = PackageManager.CheckPermission(Manifest.Permission.CallPhone, PackageName);
+                if (read != Permission.Granted && write != Permission.Granted && call != Permission.Granted)
                 {
-                    var permissions = new string[] { Manifest.Permission.ReadExternalStorage, Manifest.Permission.WriteExternalStorage };
-                    RequestPermissions(permissions, 1);
+                    var permissions = new string[] { Manifest.Permission.ReadExternalStorage, Manifest.Permission.WriteExternalStorage, Manifest.Permission.Internet };
+                    RequestPermissions(permissions, 0);
                 }
                 else
                 {
@@ -41,17 +42,23 @@ namespace LastWorkout.Droid
             }
         }
 
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        public override  void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            ComeBack();
+            if (requestCode == (int)PermissionsApp.PermissionStartup)
+            {
+                 ComeBack();
+            }
         }
 
         private void ComeBack()
         {
-            Intent returnIntent = new Intent();
-            SetResult(Result.Ok);
+
+            Intent firstIntent = new Intent(this, typeof(SplashActivity));
+            firstIntent.PutExtra("WS", "Hello DATA from the Second Activity!");
+
+            SetResult(Result.Ok, firstIntent);
+
             Finish();
         }
     }
