@@ -15,7 +15,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -187,7 +186,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LastWorkout\LastWorkout.csproj">
-      <Project>{9F9A0121-316F-48FF-9414-60B924F8E425}</Project>
+      <Project>{91F97D33-169E-4E8D-9CD2-B39F820D766A}</Project>
       <Name>LastWorkout</Name>
     </ProjectReference>
   </ItemGroup>
